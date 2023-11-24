@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class='div-txt'>
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+  </div>
+
+  <h1>Cerrar sesión de Google </h1>
+
+  <button class='btn-logout'>
+    <a href="/auth/logout">Log out</a>
+  </button>
+</body>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  const name = urlParams.get('name');
+  const token = urlParams.get('token');
+  const jwt = urlParams.get('jwt');
+
+  document.querySelector('h1').innerText = `Hola ${name}`;
+  document.querySelector('h2').innerText = `Tu token es: ${token}`;
+  document.querySelector('h3').innerText = `Tu JWT es: ${jwt}`;
+</script>
+
+</html>

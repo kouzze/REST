@@ -1,0 +1,89 @@
+#! Test
+GET http://localhost:3000/v1/test
+###! Busca por ID
+GET http://localhost:3000/v1/rooms/cfd98457-a249-4727-b489-15735ddf330c
+
+###! Esta operación GET, retorna el listado de salas que existen en el sistema
+GET http://localhost:3000/v1/rooms/
+###! Eliminar
+DELETE http://localhost:3000/v1/rooms/672f053d-b58d-42c5-9362-7679936837c6
+###! Crear
+curl --request POST \
+  --url http://localhost:3000/v1/rooms/ \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.4.2' \
+  --data '{
+  "name": "Sala de prueba2",
+  "capacity": 202
+}'
+###! Actualizar
+curl --request PUT \
+  --url http://localhost:3000/v1/rooms/672f053d-b58d-42c5-9362-7679936837c6 \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.4.2' \
+  --data '{
+  "name": "Sala de clases",
+  "capacity": 2
+	
+}'
+
+### Búsqueda por ID
+GET http://localhost:3000/v1/user/1
+
+### Listar usuarios
+GET http://localhost:3000/v1/user/
+
+### Eliminar usuario
+DELETE http://localhost:3000/v1/user/3
+
+###! Crear Usuario
+curl --request POST \
+  --url http://localhost:3000/v1/user/ \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.4.2' \
+  --data '{
+  "name": "Gustavo",
+  "email": "gustavo@gmail.com"
+}'
+
+###! Actualizar
+curl --request PUT \
+  --url http://localhost:3000/v1/user/1
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.4.2' \
+  --data '{
+  "name": "Nico 2",
+  "email": "asdasd@gmail.com"
+	
+}'
+
+### Listar reservas
+GET http://localhost:3000/v1/reserve/
+
+###! Crear reservas
+curl --request POST \
+  --url http://localhost:3000/v1/reserve/ \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.4.2' \
+  --data '{
+  "date_req": "2023-02-21",
+  "time_start": "16:00:00",
+  "time_end": "23:00:00",
+  "uuid_room": "b1a6d1e6-d24b-4fb1-91da-7deabf80ceed",
+  "token_users": "112194271299726334727"
+}'
+###
+
+GET http://localhost:3000/v1/request/
+
+###
+#! Una operación POST debe crear una reserva, usando los datos definidos. Es importante controlar
+#! la capacidad de la sala y el usuario se debe obtener desde el JWT proporcionado por la
+#! autenticación contra los servicios de Google
+POST http://localhost:3000/v1/reserve/request
+
+#! Usando un método POST y un conjunto de atributos, se puede consultar las reservas en función de los parámetros dados
+POST http://localhost:3000/v1/reserve/search
+
+#! A través de un solicitud GET, se debe obtener la agenda para un código de sala y fecha dada
+GET http://localhost:3000/v1/reserve/{roomCode}/schedule/{date}
