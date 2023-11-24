@@ -2,10 +2,10 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  username: 'admin',
-  password: 'admin',
+  host: 'motty.db.elephantsql.com',
+  database: 'ftsomtvd',
+  username: 'ftsomtvd',
+  password: 'lqeSpoLls3xNAB8qlxSLWvT2yXsWz-RJ',
   port: 5432,
 });
 
