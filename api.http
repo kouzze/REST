@@ -3,7 +3,7 @@ GET http://localhost:3000/v1/test
 ###! Busca por ID
 GET http://localhost:3000/v1/rooms/cfd98457-a249-4727-b489-15735ddf330c
 
-###! Esta operación GET, retorna el listado de salas que existen en el sistema
+###! Buscar todos
 GET http://localhost:3000/v1/rooms/
 ###! Eliminar
 DELETE http://localhost:3000/v1/rooms/672f053d-b58d-42c5-9362-7679936837c6
